@@ -36,6 +36,9 @@ function upgrade(db) {
     const store = db.createObjectStore(STORES.SHOPPING_LIST_ITEMS, { keyPath: 'id', autoIncrement: true });
     store.createIndex('listId', 'listId');
     store.createIndex('productId', 'productId');
+    store.createIndex('productName', 'productName');
+    store.createIndex('categoryName', 'categoryName');
+    store.createIndex('purchasedAt', 'purchasedAt');
     store.createIndex('checked', 'checked');
     store.createIndex('sortOrder', 'sortOrder');
   }
@@ -49,6 +52,9 @@ function upgrade(db) {
     const store = db.createObjectStore(STORES.PURCHASE_ITEMS, { keyPath: 'id', autoIncrement: true });
     store.createIndex('historyId', 'historyId');
     store.createIndex('productId', 'productId');
+    store.createIndex('productName', 'productName');
+    store.createIndex('categoryName', 'categoryName');
+    store.createIndex('purchasedAt', 'purchasedAt');
   }
 
   if (!db.objectStoreNames.contains(STORES.SETTINGS)) {
@@ -119,4 +125,5 @@ export const db = {
     return withStore(storeName, 'readonly', (store) => reqToPromise(store.count()));
   },
 };
+
 
