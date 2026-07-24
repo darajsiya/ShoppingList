@@ -1,6 +1,6 @@
 import { el, clearNode } from '../utils/helpers.js';
 import { productsRepository } from '../repositories/products.js';
-import { shoppingCartRepository } from '../repositories/shoppingCart.js';
+import { shoppingListItemsRepository } from '../repositories/shoppingListItems.js';
 import { confirmDialog } from '../components/dialogs.js';
 import { showToast } from '../components/toast.js';
 import { db } from '../db.js';
@@ -48,7 +48,7 @@ export async function renderSettingsView(root) {
           class: 'btn btn--small btn--primary',
           onclick: async () => {
             try {
-              await shoppingCartRepository.addItem(product.id);
+              await shoppingListItemsRepository.addItem(product.id);
               showToast(`أُضيف "${product.name}" للسلة`, 'success');
             } catch (err) {
               showToast(err.message, 'error');
@@ -77,3 +77,4 @@ export async function renderSettingsView(root) {
 
   await refreshFavorites();
 }
+

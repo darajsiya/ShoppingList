@@ -1,5 +1,5 @@
 import { productsRepository } from '../repositories/products.js';
-import { shoppingCartRepository } from '../repositories/shoppingCart.js';
+import { shoppingListItemsRepository } from '../repositories/shoppingListItems.js';
 
 const MAX_RESULTS = 15;
 
@@ -9,7 +9,8 @@ async function suggest(term) {
 }
 
 async function addProductToCart(productId) {
-  return shoppingCartRepository.addItem(productId);
+  return shoppingListItemsRepository.addItem(productId);
 }
 
 export const searchService = { suggest, addProductToCart };
+

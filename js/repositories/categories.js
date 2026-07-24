@@ -57,3 +57,4 @@ async function hardDelete(id) {
 export const categoriesRepository = {
   getAll, getById, existsByName, create, update, reorder, hardDelete,
 };
+

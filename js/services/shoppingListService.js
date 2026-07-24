@@ -16,3 +16,4 @@ export async function getCurrentShoppingList() {
 
   return shoppingListsRepository.get(id);
 }
+

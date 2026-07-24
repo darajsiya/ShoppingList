@@ -63,7 +63,7 @@ async function count() {
   return db.count(STORE);
 }
 
-export const shoppingCartRepository = {
+export const shoppingListItemsRepository = {
   getAll,
   getItem,
   hasItem,
@@ -73,3 +73,5 @@ export const shoppingCartRepository = {
   clear,
   count
 };
+
+

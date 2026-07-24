@@ -118,3 +118,4 @@ export function formDialog({ title, fields, submitLabel = 'حفظ' }) {
 }
 
 export { closeDialog };
+

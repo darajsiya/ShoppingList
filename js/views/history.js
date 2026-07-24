@@ -35,3 +35,4 @@ export async function renderHistoryView(root) {
     listContainer.appendChild(card);
   });
 }
+

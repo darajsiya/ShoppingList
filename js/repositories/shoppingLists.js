@@ -22,3 +22,4 @@ export const shoppingListsRepository = {
     return db.delete(STORES.SHOPPING_LISTS, id);
   },
 };
+

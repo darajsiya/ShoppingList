@@ -20,3 +20,4 @@ export function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 250);
   }, 2200);
 }
+

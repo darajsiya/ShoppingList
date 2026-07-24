@@ -95,3 +95,4 @@ export const productsRepository = {
   getAll, getById, getByCategory, getFavorites, existsByName, searchByName,
   create, update, softDelete, incrementPurchaseCount, reorderWithinCategory,
 };
+

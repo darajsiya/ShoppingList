@@ -1,5 +1,5 @@
 import { el, clearNode } from '../utils/helpers.js';
-import { shoppingCartRepository } from '../repositories/shoppingCart.js';
+import { shoppingListItemsRepository } from '../repositories/shoppingListItems.js';
 import { productsRepository } from '../repositories/products.js';
 import { categoriesRepository } from '../repositories/categories.js';
 import { settingsRepository } from '../repositories/settings.js';
@@ -19,7 +19,7 @@ export async function renderCartView(root) {
 
   const searchBar = createSearchBar({
     onSelectProduct: async (product) => {
-      await shoppingCartRepository.addItem(product.id);
+      await shoppingListItemsRepository.addItem(product.id);
       showToast(`أُضيف "${product.name}" للسلة`, 'success');
       await refreshList();
     },
@@ -89,7 +89,7 @@ export async function renderCartView(root) {
         name: values.name,
         categoryId: Number(values.categoryId),
       });
-      await shoppingCartRepository.addItem(product.id);
+      await shoppingListItemsRepository.addItem(product.id);
       showToast(`أُضيف "${product.name}" للسلة`, 'success');
       searchBar.reset();
       searchBar.focus();
@@ -101,7 +101,7 @@ export async function renderCartView(root) {
 
   async function handleToggleChecked(productId, checked) {
     try {
-      await shoppingCartRepository.updateItem(productId, { checked });
+      await shoppingListItemsRepository.updateItem(productId, { checked });
       await refreshList();
     } catch (err) {
       showToast(err.message, 'error');
@@ -110,7 +110,7 @@ export async function renderCartView(root) {
 
   async function handleNoteChange(productId, note) {
     try {
-      await shoppingCartRepository.updateItem(productId, { note });
+      await shoppingListItemsRepository.updateItem(productId, { note });
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -118,7 +118,7 @@ export async function renderCartView(root) {
 
   async function handleRemove(productId) {
     try {
-      await shoppingCartRepository.removeItem(productId);
+      await shoppingListItemsRepository.removeItem(productId);
       await refreshList();
     } catch (err) {
       showToast(err.message, 'error');
@@ -145,7 +145,7 @@ export async function renderCartView(root) {
   async function refreshList() {
     clearNode(listContainer);
     const [cartItems, allProducts] = await Promise.all([
-      shoppingCartRepository.getAll(),
+      shoppingListItemsRepository.getAll(),
       productsRepository.getAll(),
     ]);
     const productsById = new Map(allProducts.map((p) => [p.id, p]));
@@ -191,3 +191,4 @@ export async function renderCartView(root) {
 
   await refreshList();
 }
+

@@ -1,12 +1,12 @@
 import { getCurrentShoppingList } from './shoppingListService.js';
-import { shoppingCartRepository } from '../repositories/shoppingCart.js';
+import { shoppingListItemsRepository } from '../repositories/shoppingListItems.js';
 import { productsRepository } from '../repositories/products.js';
 import { historyRepository } from '../repositories/history.js';
 
 async function finishShopping() {
   await getCurrentShoppingList();
 
-  const cartItems = await shoppingCartRepository.getAll();
+  const cartItems = await shoppingListItemsRepository.getAll();
 
   if (cartItems.length === 0) {
     const error = new Error('السلة فارغة، لا يوجد ما يتم إنهاؤه');
@@ -42,7 +42,7 @@ async function finishShopping() {
     cartItems.map(i => productsRepository.incrementPurchaseCount(i.productId))
   );
 
-  await shoppingCartRepository.clear();
+  await shoppingListItemsRepository.clear();
 
   return {
     historyRecord,
@@ -58,3 +58,4 @@ export const purchaseService = {
   finishShopping,
   getHistoryWithDetails
 };
+

@@ -15,3 +15,4 @@ async function getAll() {
 }
 
 export const settingsRepository = { get, set, getAll };
+

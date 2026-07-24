@@ -1,6 +1,6 @@
 import { categoriesRepository } from '../repositories/categories.js';
 import { productsRepository } from '../repositories/products.js';
-import { shoppingCartRepository } from '../repositories/shoppingCart.js';
+import { shoppingListItemsRepository } from '../repositories/shoppingListItems.js';
 
 async function createCategory({ name, icon }) {
   const trimmed = (name || '').trim();
@@ -69,7 +69,7 @@ async function toggleFavorite(productId) {
 
 async function deleteProduct(id) {
   await productsRepository.softDelete(id);
-  await shoppingCartRepository.removeItem(id);
+  await shoppingListItemsRepository.removeItem(id);
 }
 
 async function getCatalogGroupedByCategory() {
@@ -90,3 +90,4 @@ export const catalogService = {
   createProduct, updateProduct, moveProductToCategory, toggleFavorite, deleteProduct,
   getCatalogGroupedByCategory,
 };
+

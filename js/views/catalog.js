@@ -193,3 +193,4 @@ export async function renderCatalogView(root) {
 
   await refresh();
 }
+

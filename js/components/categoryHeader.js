@@ -8,3 +8,4 @@ export function renderCategoryHeader(category, extra = {}) {
     count !== undefined ? el('span', { class: 'category-header__count', text: String(count) }) : null,
   ]);
 }
+

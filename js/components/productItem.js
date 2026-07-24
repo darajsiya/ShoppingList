@@ -63,3 +63,4 @@ export function renderSearchResultRow(product, onSelect) {
     product.favorite ? el('span', { class: 'search-result__star', text: '★' }) : null,
   ]);
 }
+

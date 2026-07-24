@@ -97,3 +97,4 @@ export function createSearchBar(options) {
 
   return { node: wrapper, reset, focus };
 }
+

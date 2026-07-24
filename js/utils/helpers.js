@@ -63,3 +63,4 @@ export function el(tag, attrs = {}, children = []) {
 export function clearNode(node) {
   while (node.firstChild) node.removeChild(node.firstChild);
 }
+
