@@ -9,7 +9,7 @@ export const STORES = {
   CART: 'shoppingCart',
   HISTORY: 'purchaseHistory',
   HISTORY_ITEMS: 'purchaseHistoryItems',
-  PURCHASE_ITEMS: 'purchaseItems',
+  PURCHASE_ITEMS: 'purchaseHistoryItems',
   SETTINGS: 'settings',
 };
 
@@ -31,5 +31,6 @@ export const SETTINGS_KEYS = {
   CART_VIEW_MODE: 'cartViewMode',
   CATALOG_FILTER_CATEGORY: 'catalogFilterCategory',
 };
+
 
 
