@@ -14,8 +14,8 @@ const routes = {
 };
 
 const NAV_ITEMS = [
-  { key: VIEWS.CART, label: 'السلة', icon: '🧺' },
-  { key: VIEWS.CATALOG, label: 'الكتالوج', icon: '📦' },
+  { key: VIEWS.CART, label: 'التسوق', icon: '🛒' },
+  { key: VIEWS.CATALOG, label: 'القوائم', icon: '📚' },
   { key: VIEWS.HISTORY, label: 'السجل', icon: '🧾' },
   { key: VIEWS.SETTINGS, label: 'الإعدادات', icon: '⚙️' },
 ];
@@ -64,3 +64,4 @@ async function init() {
 }
 
 init();
+
