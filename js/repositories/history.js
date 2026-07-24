@@ -12,13 +12,24 @@ async function getById(id) {
 }
 
 async function create({ itemCount }) {
-  const record = { date: nowISO(), itemCount };
+  const record = {
+    date: nowISO(),
+    itemCount
+  };
+
   const id = await db.add(STORES.HISTORY, record);
   return { ...record, id };
 }
 
-async function addItems(historyId, productIds) {
-  await Promise.all(productIds.map((productId) => db.add(STORES.PURCHASE_ITEMS, { historyId, productId })));
+async function addItems(historyId, items) {
+  await Promise.all(
+    items.map(item =>
+      db.add(STORES.PURCHASE_ITEMS, {
+        historyId,
+        ...item
+      })
+    )
+  );
 }
 
 async function getItemsByHistory(historyId) {
@@ -26,5 +37,9 @@ async function getItemsByHistory(historyId) {
 }
 
 export const historyRepository = {
-  getAll, getById, create, addItems, getItemsByHistory,
+  getAll,
+  getById,
+  create,
+  addItems,
+  getItemsByHistory
 };
