@@ -24,6 +24,22 @@ function upgrade(db) {
     store.createIndex('addedAt', 'addedAt');
   }
 
+  
+  if (!db.objectStoreNames.contains(STORES.SHOPPING_LISTS)) {
+    const store = db.createObjectStore(STORES.SHOPPING_LISTS, { keyPath: 'id', autoIncrement: true });
+    store.createIndex('createdAt', 'createdAt');
+    store.createIndex('updatedAt', 'updatedAt');
+    store.createIndex('name', 'name');
+  }
+
+  if (!db.objectStoreNames.contains(STORES.SHOPPING_LIST_ITEMS)) {
+    const store = db.createObjectStore(STORES.SHOPPING_LIST_ITEMS, { keyPath: 'id', autoIncrement: true });
+    store.createIndex('listId', 'listId');
+    store.createIndex('productId', 'productId');
+    store.createIndex('checked', 'checked');
+    store.createIndex('sortOrder', 'sortOrder');
+  }
+
   if (!db.objectStoreNames.contains(STORES.HISTORY)) {
     const store = db.createObjectStore(STORES.HISTORY, { keyPath: 'id', autoIncrement: true });
     store.createIndex('date', 'date');
@@ -103,3 +119,4 @@ export const db = {
     return withStore(storeName, 'readonly', (store) => reqToPromise(store.count()));
   },
 };
+
