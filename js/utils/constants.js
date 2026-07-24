@@ -1,5 +1,5 @@
 export const DB_NAME = 'ShoppingListDB';
-export const DB_VERSION = 1;
+export const DB_VERSION = 2;
 
 export const STORES = {
   CATEGORIES: 'categories',
@@ -28,3 +28,4 @@ export const SETTINGS_KEYS = {
   CART_VIEW_MODE: 'cartViewMode',
   CATALOG_FILTER_CATEGORY: 'catalogFilterCategory',
 };
+
