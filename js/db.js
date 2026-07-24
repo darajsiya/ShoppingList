@@ -19,10 +19,7 @@ function upgrade(db) {
     store.createIndex('normalizedName', 'normalizedName');
   }
 
-  if (!db.objectStoreNames.contains(STORES.CART)) {
-    const store = db.createObjectStore(STORES.CART, { keyPath: 'productId' });
-    store.createIndex('addedAt', 'addedAt');
-  }
+  
 
   
   if (!db.objectStoreNames.contains(STORES.SHOPPING_LISTS)) {
@@ -125,6 +122,7 @@ export const db = {
     return withStore(storeName, 'readonly', (store) => reqToPromise(store.count()));
   },
 };
+
 
 
 

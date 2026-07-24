@@ -1,12 +1,11 @@
 export const DB_NAME = 'ShoppingListDB';
-export const DB_VERSION = 2;
+export const DB_VERSION = 3;
 
 export const STORES = {
   CATEGORIES: 'categories',
   PRODUCTS: 'products',
   SHOPPING_LISTS: 'shoppingLists',
   SHOPPING_LIST_ITEMS: 'shoppingListItems',
-  CART: 'shoppingCart',
   HISTORY: 'purchaseHistory',
   HISTORY_ITEMS: 'purchaseHistoryItems',
   PURCHASE_ITEMS: 'purchaseHistoryItems',
@@ -31,6 +30,7 @@ export const SETTINGS_KEYS = {
   CART_VIEW_MODE: 'cartViewMode',
   CATALOG_FILTER_CATEGORY: 'catalogFilterCategory',
 };
+
 
 
 

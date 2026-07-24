@@ -2,7 +2,7 @@ import { db } from '../db.js';
 import { STORES } from '../utils/constants.js';
 import { nowISO } from '../utils/helpers.js';
 
-const STORE = STORES.SHOPPING_LIST_ITEMS ?? STORES.CART;
+const STORE = STORES.SHOPPING_LIST_ITEMS;
 
 async function getAll() {
   const all = await db.getAll(STORE);
@@ -73,5 +73,6 @@ export const shoppingListItemsRepository = {
   clear,
   count
 };
+
 
 
