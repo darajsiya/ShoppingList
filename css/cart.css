@@ -1,0 +1,193 @@
+/* ---------- شريط البحث ---------- */
+
+.search-bar { position: relative; margin-bottom: 4px; }
+
+.search-bar__field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.search-bar__field:focus-within { border-color: var(--color-accent); }
+
+.search-bar__icon { font-size: 16px; opacity: 0.6; }
+
+.search-bar__input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+}
+
+.search-bar__input:focus { outline: none; }
+
+.search-bar__results {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  margin-top: 6px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: none;
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-surface-alt);
+}
+
+.search-result:last-child { border-bottom: none; }
+.search-result:hover, .search-result:active { background: var(--color-surface-alt); }
+.search-result__star { color: var(--color-highlight); }
+
+.search-bar__empty {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--color-accent-tint);
+  color: var(--color-accent-dark);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* ---------- قائمة السلة بروح الإيصال الورقي ---------- */
+
+.cart-summary {
+  font-size: 13px;
+  color: var(--color-ink-muted);
+  padding: 2px 4px 10px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 2px 6px;
+}
+
+.category-header__icon { font-size: 17px; }
+.category-header__name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.category-header__count {
+  margin-inline-start: auto;
+  font-size: 12px;
+  color: var(--color-ink-muted);
+  background: var(--color-surface-alt);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.cart-list {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* حافة مسننة أعلى القائمة، بروح شريط الإيصال المقصوص */
+.cart-list::before {
+  content: '';
+  display: block;
+  height: 8px;
+  background-image: linear-gradient(135deg, var(--color-bg) 25%, transparent 25.5%),
+                     linear-gradient(-135deg, var(--color-bg) 25%, transparent 25.5%);
+  background-size: 14px 14px;
+  background-position: bottom;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px dashed var(--color-border);
+  transition: background 0.15s ease;
+}
+
+.cart-row:last-child { border-bottom: none; }
+.cart-row--checked { background: var(--color-success-tint); }
+
+.stamp-check {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2.5px solid var(--color-ink-muted);
+  color: transparent;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s ease;
+}
+
+.stamp-check--checked {
+  border-color: var(--color-success);
+  color: var(--color-success);
+  background: #fff;
+  transform: rotate(-8deg) scale(1.05);
+  box-shadow: 0 0 0 2px var(--color-success-tint);
+}
+
+.cart-row__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cart-row__name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.cart-row--checked .cart-row__name {
+  text-decoration: line-through;
+  color: var(--color-ink-muted);
+}
+
+.cart-row__note {
+  border: none;
+  background: transparent;
+  font-size: 12.5px;
+  color: var(--color-ink-muted);
+  padding: 0;
+}
+
+.cart-row__note:focus { outline: none; color: var(--color-ink); }
+.cart-row__note::placeholder { color: #B7BEAF; }
+
+.cart-row__remove {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+
+.cart-row__remove:hover { color: var(--color-danger); background: var(--color-accent-tint); }
+
+.cart-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 14px 0 4px;
+  background: linear-gradient(to top, var(--color-bg) 60%, transparent);
+}
