@@ -1,3 +1,4 @@
+import { getCurrentShoppingList } from './shoppingListService.js';
 import { shoppingCartRepository } from '../repositories/shoppingCart.js';
 import { productsRepository } from '../repositories/products.js';
 import { historyRepository } from '../repositories/history.js';
@@ -34,3 +35,4 @@ async function getHistoryWithDetails() {
 }
 
 export const purchaseService = { finishShopping, getHistoryWithDetails };
+
